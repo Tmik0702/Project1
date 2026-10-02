@@ -17,7 +17,7 @@ const PORT = process.env.PORT || 3000;
 // Route 1: Thông tin API (JSON)
 app.get('/api/info', (req, res) => {
     res.json({
-        message: '🚀 Hello World from Node.js + Express RESTful API!',
+        message: ' Hello World from Node.js + Express RESTful API!',
         course: 'Web Application Development - S3Lab',
         student: 'Tmik0702 (UIT)',
         status: 'Active'

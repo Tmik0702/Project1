@@ -5,24 +5,32 @@ function App() {
   const [count, setCount] = useState(0)
 
   return (
-    <div style={{ textAlign: 'center', padding: '50px 20px', fontFamily: 'sans-serif' }}>
-      <h1> Hello World from Phan Doan Quoc Tuan</h1>
-      <p style={{ fontSize: '1.2rem', color: '#0066cc' }}>
+    <div className="app-container">
+      <h1>🚀 Hello World from React.js!</h1>
+      <p style={{ color: '#94a3b8', marginTop: '8px' }}>
         Bài tập Homework 3 - Web Application Development
       </p>
 
-      <div style={{ margin: '30px auto', padding: '20px', maxWidth: '400px', background: '#f5f5f5', borderRadius: '10px' }}>
-        <h3>Demo React State:</h3>
-        <p>Số lần bạn đã click: <strong>{count}</strong></p>
-        <button 
-          onClick={() => setCount(count + 1)}
-          style={{ padding: '10px 20px', fontSize: '1rem', cursor: 'pointer', backgroundColor: '#61dafb', border: 'none', borderRadius: '5px', fontWeight: 'bold' }}
-        >
-          Bấm vào đây (+1)
-        </button>
+      <div className="glass-card">
+        <h3>Bộ Đếm Tương Tác (State Demo)</h3>
+        <div className="counter-number">{count}</div>
+        
+        <div className="button-group">
+          <button className="btn btn-primary" onClick={() => setCount(count + 1)}>
+            Tăng (+1)
+          </button>
+          <button className="btn btn-danger" onClick={() => setCount(count - 1)}>
+            Giảm (-1)
+          </button>
+          <button className="btn" style={{ background: '#475569', color: '#fff' }} onClick={() => setCount(0)}>
+            Reset
+          </button>
+        </div>
       </div>
 
-      <p style={{ color: '#888' }}>Sinh viên: Tmik0702 (UIT)</p>
+      <p style={{ color: '#64748b', fontSize: '0.9rem' }}>
+        Sinh viên: Phan Đoàn Quốc Tuấn (UIT)
+      </p>
     </div>
   )
 }

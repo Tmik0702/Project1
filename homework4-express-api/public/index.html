@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>API Dashboard - S3Lab Web App Development</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="dashboard-container">
+    <div class="header">
+      <div class="title-area">
+        <h1>⚡ Node.js + Express REST API</h1>
+        <p>Hệ thống Backend môn Web Application Development (S3Lab)</p>
+      </div>
+      <div class="status-badge">
+        <span class="status-dot"></span>
+        <span>Render Live</span>
+      </div>
+    </div>
+
+    <div class="info-cards">
+      <div class="info-card">
+        <div class="label">Sinh viên thực hiện</div>
+        <div class="value">Tmik0702 (UIT)</div>
+      </div>
+      <div class="info-card">
+        <div class="label">Môi trường chạy</div>
+        <div class="value">Render Cloud (Node.js)</div>
+      </div>
+      <div class="info-card">
+        <div class="label">Chuẩn API</div>
+        <div class="value">RESTful + CORS Enabled</div>
+      </div>
+    </div>
+
+    <h2 class="section-title">📡 Danh sách Endpoint REST API</h2>
+    <div class="endpoints">
+      <div class="endpoint-card">
+        <div class="endpoint-info">
+          <span class="method-tag">GET</span>
+          <span class="route-path">/api/info</span>
+        </div>
+        <button class="btn-test" onclick="fetchEndpoint('/api/info')">Gửi Request</button>
+      </div>
+
+      <div class="endpoint-card">
+        <div class="endpoint-info">
+          <span class="method-tag">GET</span>
+          <span class="route-path">/api/skills</span>
+        </div>
+        <button class="btn-test" onclick="fetchEndpoint('/api/skills')">Gửi Request</button>
+      </div>
+    </div>
+
+    <div class="live-viewer">
+      <div class="viewer-header">
+        <span id="response-title">📥 Kết quả trả về (JSON Response):</span>
+        <span id="response-time">200 OK</span>
+      </div>
+      <pre id="json-display">Bấm nút "Gửi Request" ở trên để xem phản hồi trực tiếp từ Server...</pre>
+    </div>
+
+    <div class="footer-nav">
+      <span>© 2026 - Khoa MMT & TT - Đại học CNTT (UIT)</span>
+      <div class="footer-links">
+        <a href="https://project1-homework2-static-web.vercel.app/" target="_blank">Homework 2 (Web Tĩnh)</a>
+        <a href="https://project1-gray-two.vercel.app/" target="_blank">Homework 3 (React.js)</a>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    async function fetchEndpoint(endpoint) {
+      const display = document.getElementById('json-display');
+      const time = document.getElementById('response-time');
+      const title = document.getElementById('response-title');
+      
+      display.textContent = 'Đang tải dữ liệu từ ' + endpoint + '...';
+      const start = performance.now();
+      try {
+        const res = await fetch(endpoint);
+        const data = await res.json();
+        const duration = Math.round(performance.now() - start);
+        title.textContent = '📥 Kết quả từ ' + endpoint + ':';
+        time.textContent = `${res.status} OK (${duration}ms)`;
+        display.textContent = JSON.stringify(data, null, 2);
+      } catch (err) {
+        display.textContent = 'Lỗi gọi API: ' + err.message;
+        time.textContent = 'ERROR';
+      }
+    }
+
+    // Tự động load /api/info khi vào trang
+    window.addEventListener('DOMContentLoaded', () => {
+      fetchEndpoint('/api/info');
+    });
+  </script>
+</body>
+</html>

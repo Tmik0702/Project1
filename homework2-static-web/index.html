@@ -3,45 +3,135 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio - Sinh viên CNTT UIT</title>
+    <title>CLOUDLET - Web Developer Portfolio</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="container">
-        <header class="header">
-            <div class="avatar">👨‍💻</div>
-            <h1>Xin chào, mình là Sinh viên CNTT</h1>
-            <p class="subtitle">Đại học Công nghệ Thông tin - ĐHQG TP.HCM (UIT)</p>
-        </header>
 
-        <section class="card">
-            <h2>Mục tiêu nghề nghiệp</h2>
-            <p>Đang học phát triển ứng dụng Web (Fullstack), nghiên cứu React.js, Node.js & CSDL.</p>
-        </section>
+    <!-- 1. THANH ĐIỀU HƯỚNG (NAVBAR) -->
+    <nav class="navbar">
+        <div class="logo">PORTFOLIO<span>.</span></div>
+        <ul class="nav-links">
+            <li><a href="#about">Giới thiệu</a></li>
+            <li><a href="#types">Phân loại</a></li>
+            <li><a href="#skills">Kỹ năng</a></li>
+            <li><a href="#workflow">Quy trình</a></li>
+            <li><a href="#contact" class="btn-nav">Liên hệ</a></li>
+        </ul>
+    </nav>
 
-        <section class="card">
-            <h2>Kỹ năng & Công nghệ</h2>
-            <div class="tags">
-                <span class="tag">HTML5 / CSS3</span>
-                <span class="tag">JavaScript</span>
-                <span class="tag">Node.js / Express</span>
-                <span class="tag">MySQL / MongoDB</span>
-                <span class="tag">Git & GitHub</span>
+    <!-- 2. BANNER CHÍNH (HERO SECTION) -->
+    <header class="hero">
+        <div class="container">
+            <span class="badge">Web Developer</span>
+            <h1>Building Digital Experiences for the Modern Web</h1>
+            <p class="hero-sub">Presented by <strong>Phan Đoàn Quốc Tuấn</strong> (UIT)</p>
+            <div class="hero-buttons">
+                <a href="#about" class="btn btn-primary">Khám phá</a>
+                <a href="https://project1-gray-two.vercel.app/" target="_blank" class="btn btn-outline">Xem Demo React (H3)</a>
             </div>
-        </section>
+        </div>
+    </header>
 
-        <section class="card">
-            <h2>Dự án môn học</h2>
-            <ul class="project-list">
-                <li><strong>Homework 2:</strong> Trang Web tĩnh cá nhân (Vercel)</li>
-                <li><strong>Homework 3:</strong> Ứng dụng React.js (Vercel)</li>
-                <li><strong>Homework 4:</strong> RESTful API Node.js + Express (Render)</li>
-            </ul>
-        </section>
+    <!-- 3. GIỚI THIỆU (THE FOUNDATION) -->
+    <section id="about" class="section">
+        <div class="container">
+            <div class="about-card">
+                <h2>The Foundation of the Modern Internet</h2>
+                <p>
+                    Phát triển web (Web development) là quá trình thiết kế, xây dựng và duy trì các trang web và ứng dụng web hoạt động trên môi trường Internet hoặc mạng nội bộ.
+                </p>
+                <p>
+                    Nó là sự kết hợp hài hòa giữa lập trình logic, nguyên tắc thiết kế giao diện, tối ưu hóa hiệu năng và trải nghiệm người dùng (UX) để đảm bảo các sản phẩm kỹ thuật số luôn đáng tin cậy, có thể mở rộng và dễ sử dụng.
+                </p>
+            </div>
+        </div>
+    </section>
 
-        <footer>
-            <p>© 2026 - Bài tập môn Web Application Development (S3Lab)</p>
-        </footer>
-    </div>
+    <!-- 4. PHÂN LOẠI LẬP TRÌNH VIÊN WEB (TYPES OF DEVELOPERS) -->
+    <section id="types" class="section section-gray">
+        <div class="container">
+            <h2 class="section-title">Types of Web Developers</h2>
+            <div class="grid-3">
+                <div class="card">
+                    <div class="card-icon">🎨</div>
+                    <h3>Front-End Developer</h3>
+                    <p>Tập trung vào phần giao diện thị giác và các tương tác mà người dùng trực tiếp trải nghiệm, đảm bảo tính thẩm mỹ, mượt mà và khả năng co giãn trên mọi kích thước màn hình (Responsive Design).</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">⚙️</div>
+                    <h3>Back-End Developer</h3>
+                    <p>Quản lý logic phía máy chủ (Server-side logic), cơ sở dữ liệu và kiến trúc ứng dụng nhằm đảm bảo dữ liệu được xử lý chính xác, an toàn và hệ thống luôn hoạt động ổn định.</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">🚀</div>
+                    <h3>Full-Stack Developer</h3>
+                    <p>Kết hợp toàn diện cả kỹ năng Front-End lẫn Back-End, hiểu rõ cách các thành phần trong toàn bộ hệ sinh thái web giao tiếp với nhau từ giao diện đến máy chủ.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. QUY TRÌNH PHÁT TRIỂN (DEVELOPMENT WORKFLOW) -->
+    <section id="workflow" class="section">
+        <div class="container">
+            <h2 class="section-title">Development Workflow</h2>
+            <div class="timeline">
+                <div class="step">
+                    <span class="step-num">01</span>
+                    <h4>1. Planning & Scope</h4>
+                    <p>Xác định mục tiêu, phân tích yêu cầu nghiệp vụ và phạm vi kỹ thuật trước khi bắt tay vào lập trình.</p>
+                </div>
+                <div class="step">
+                    <span class="step-num">02</span>
+                    <h4>2. Development</h4>
+                    <p>Viết mã sạch (Clean Code), xây dựng chức năng và tích hợp hệ thống thư viện, cơ sở dữ liệu.</p>
+                </div>
+                <div class="step">
+                    <span class="step-num">03</span>
+                    <h4>3. Testing & Deployment</h4>
+                    <p>Kiểm thử lỗi, tối ưu hiệu năng và phát hành ứng dụng lên dịch vụ đám mây (Vercel, Render) cho người dùng cuối.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- THÊM MỤC KỸ NĂNG CÓ id="skills" -->
+    <section id="skills" class="section">
+        <div class="container">
+            <h2 class="section-title">Kỹ năng & Chuyên môn</h2>
+            <div class="grid-3">
+                <div class="card">
+                    <h3>💻 Front-End</h3>
+                    <p>HTML5, CSS3, JavaScript (ES6+), React.js, Responsive Design, Flexbox/Grid.</p>
+                </div>
+                <div class="card">
+                    <h3>🛠️ Back-End</h3>
+                    <p>Node.js, Express.js, Xây dựng RESTful API, Xử lý CORS, Quản lý Middleware.</p>
+                </div>
+                <div class="card">
+                    <h3>🗄️ Database & Cloud</h3>
+                    <p>MySQL, MongoDB, Git & GitHub Desktop, Vercel, Render Cloud Hosting.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 6. LIÊN HỆ & CHÂN TRANG (TAKE THE NEXT STEP) -->
+    <footer id="contact" class="footer">
+        <div class="container footer-content">
+            <h2>Start Building, Learning, and Growing Today</h2>
+            <p>Sẵn sàng cho các dự án phát triển web hiện đại.</p>
+            <div class="contact-info">
+                <span>📍 Đại học Công nghệ Thông tin - ĐHQG TP.HCM</span>
+                <span>📧 26560084@gm.uit.edu.vn</span>
+                <span>🌐 tmik0702.github.io</span>
+            </div>
+            <div class="copyright">
+                © 2026 CLOUDLET Portfolio. Thiết kế phục vụ môn Web Application Development.
+            </div>
+        </div>
+    </footer>
+
 </body>
 </html>

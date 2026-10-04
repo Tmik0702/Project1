@@ -3,98 +3,83 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>API Dashboard - S3Lab Web App Development</title>
+  <title>PORTFOLIO - RESTful API Dashboard</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div class="dashboard-container">
-    <div class="header">
-      <div class="title-area">
-        <h1>⚡ Node.js + Express REST API</h1>
-        <p>Hệ thống Backend môn Web Application Development (S3Lab)</p>
+
+  <nav class="navbar">
+    <div class="logo">PORTFOLIO<span>.</span></div>
+    <div class="badge-live">
+      <span class="status-dot"></span>
+      <span>Render Cloud Live</span>
+    </div>
+  </nav>
+
+  <div class="container">
+    <span class="badge">Homework 4 • Node.js & Express</span>
+    <h1 class="page-title">RESTful API Dashboard</h1>
+    <p class="page-sub">Hệ thống dịch vụ API phục vụ các ứng dụng Frontend của dự án môn học.</p>
+
+    <div class="info-grid">
+      <div class="info-box">
+        <div class="label">Sinh viên</div>
+        <div class="value">Phan Đoàn Quốc Tuấn</div>
       </div>
-      <div class="status-badge">
-        <span class="status-dot"></span>
-        <span>Render Live</span>
+      <div class="info-box">
+        <div class="label">Trường</div>
+        <div class="value">Đại học CNTT (UIT)</div>
+      </div>
+      <div class="info-box">
+        <div class="label">Hạ tầng</div>
+        <div class="value">Node.js on Render</div>
       </div>
     </div>
 
-    <div class="info-cards">
-      <div class="info-card">
-        <div class="label">Sinh viên thực hiện</div>
-        <div class="value">Tmik0702 (UIT)</div>
-      </div>
-      <div class="info-card">
-        <div class="label">Môi trường chạy</div>
-        <div class="value">Render Cloud (Node.js)</div>
-      </div>
-      <div class="info-card">
-        <div class="label">Chuẩn API</div>
-        <div class="value">RESTful + CORS Enabled</div>
-      </div>
-    </div>
-
-    <h2 class="section-title">📡 Danh sách Endpoint REST API</h2>
-    <div class="endpoints">
-      <div class="endpoint-card">
-        <div class="endpoint-info">
-          <span class="method-tag">GET</span>
-          <span class="route-path">/api/info</span>
+    <div class="card">
+      <h3>📡 Danh Sách API Endpoints</h3>
+      
+      <div class="endpoint-item">
+        <div>
+          <span class="method-get">GET</span>
+          <span class="path">/api/info</span>
         </div>
-        <button class="btn-test" onclick="fetchEndpoint('/api/info')">Gửi Request</button>
+        <button class="btn-test" onclick="fetchApi('/api/info')">Kiểm thử API</button>
       </div>
 
-      <div class="endpoint-card">
-        <div class="endpoint-info">
-          <span class="method-tag">GET</span>
-          <span class="route-path">/api/skills</span>
+      <div class="endpoint-item">
+        <div>
+          <span class="method-get">GET</span>
+          <span class="path">/api/skills</span>
         </div>
-        <button class="btn-test" onclick="fetchEndpoint('/api/skills')">Gửi Request</button>
+        <button class="btn-test" onclick="fetchApi('/api/skills')">Kiểm thử API</button>
       </div>
     </div>
 
-    <div class="live-viewer">
-      <div class="viewer-header">
-        <span id="response-title">📥 Kết quả trả về (JSON Response):</span>
-        <span id="response-time">200 OK</span>
-      </div>
-      <pre id="json-display">Bấm nút "Gửi Request" ở trên để xem phản hồi trực tiếp từ Server...</pre>
+    <div class="card">
+      <h3>📥 Kết Quả Trả Về (JSON Response)</h3>
+      <pre id="display">Bấm nút "Kiểm thử API" ở trên để xem phản hồi trực tiếp...</pre>
     </div>
 
-    <div class="footer-nav">
-      <span>© 2026 - Khoa MMT & TT - Đại học CNTT (UIT)</span>
-      <div class="footer-links">
-        <a href="https://project1-homework2-static-web.vercel.app/" target="_blank">Homework 2 (Web Tĩnh)</a>
-        <a href="https://project1-gray-two.vercel.app/" target="_blank">Homework 3 (React.js)</a>
-      </div>
-    </div>
+    <footer>
+      <p>© 2026 CLOUDLET Portfolio • Môn Phát triển Ứng dụng Web (S3Lab)</p>
+    </footer>
   </div>
 
   <script>
-    async function fetchEndpoint(endpoint) {
-      const display = document.getElementById('json-display');
-      const time = document.getElementById('response-time');
-      const title = document.getElementById('response-title');
-      
-      display.textContent = 'Đang tải dữ liệu từ ' + endpoint + '...';
-      const start = performance.now();
+    async function fetchApi(endpoint) {
+      const box = document.getElementById('display');
+      box.textContent = 'Đang gọi ' + endpoint + '...';
       try {
         const res = await fetch(endpoint);
         const data = await res.json();
-        const duration = Math.round(performance.now() - start);
-        title.textContent = '📥 Kết quả từ ' + endpoint + ':';
-        time.textContent = `${res.status} OK (${duration}ms)`;
-        display.textContent = JSON.stringify(data, null, 2);
-      } catch (err) {
-        display.textContent = 'Lỗi gọi API: ' + err.message;
-        time.textContent = 'ERROR';
+        box.textContent = JSON.stringify(data, null, 2);
+      } catch (e) {
+        box.textContent = 'Lỗi: ' + e.message;
       }
     }
-
     // Tự động load /api/info khi vào trang
-    window.addEventListener('DOMContentLoaded', () => {
-      fetchEndpoint('/api/info');
-    });
+    window.onload = () => fetchApi('/api/info');
   </script>
 </body>
 </html>

@@ -35,8 +35,6 @@ function App() {
       <main className="main-content">
         <span className="badge">Homework 3 • React.js</span>
         <h1 className="page-title">Interactive React Application</h1>
-        <p className="page-subtitle">Xây dựng ứng dụng tương tác động theo phong cách chuẩn mực của CLOUDLET Portfolio.</p>
-
         {/* PHẦN 1: INPUT TƯƠNG TÁC */}
         <section className="card">
           <h3>✍️ Nhập tên của bạn</h3>

@@ -19,7 +19,7 @@ app.get('/api/info', (req, res) => {
     res.json({
         message: ' Hello World from Node.js + Express RESTful API!',
         course: 'Web Application Development - S3Lab',
-        student: 'Tmik0702 (UIT)',
+        student: 'Phan Doan Quoc Tuan (UIT)',
         status: 'Active'
     });
 });
